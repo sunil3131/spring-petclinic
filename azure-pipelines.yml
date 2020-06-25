@@ -10,11 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script:
-      - apt-get update -y
-        apt-get install maven -y
-        apt-get install docker.io -y
-        docker build -t mahi .
+- script: apt-get update -y && apt-get install maven -y && apt-get install docker.io && docker build -t mahi .
   displayName: 'Run a one-line script'
 
 
