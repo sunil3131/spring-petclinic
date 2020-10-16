@@ -50,14 +50,14 @@ pipeline {
       post {
         always {
           echo "Deployment COMPLETED"
-          deleteDir()
-          sh "docker rmi ${params.registry}:${BUILD_NUMBER}"
+       
+          
         }
         failure {
-          echo "Deployment of ${params.registry}:${BUILD_NUMBER} FAILED"
+          echo "Deployment of  FAILED"
         }
         success {
-          echo "Deployment of ${params.registry}:${BUILD_NUMBER} SUCCEEDED"
+          echo "Deployment of  SUCCEEDED"
         }
       }
     }
