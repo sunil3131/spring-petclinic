@@ -4,7 +4,7 @@ pipeline {
     parameters {
         string(name: 'repositoryBranch', defaultValue: 'master', description: 'repositoryBranch')
         string(name: 'repositoryCredential', defaultValue: 'gitlab', description: 'repositoryCredential')
-        string(name: 'repositoryUrl', defaultValue: 'https://github.com/sunilh5252/spring-petclinic.git', description: 'repositoryUrl')
+        string(name: 'repositoryUrl', defaultValue: 'https://github.com/sunil3131/spring-petclinic.git', description: 'repositoryUrl')
         string(name: 'registry', defaultValue: 'sunil5252/demoproject', description: 'registry')
         string(name: 'registryCredential', defaultValue: 'dockerhub', description: 'registryCredential')
 
