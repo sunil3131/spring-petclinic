@@ -10,8 +10,7 @@ pipeline {
         string(name: 'registry', defaultValue: 'sunil5252/demoproject', description: 'registry')
         string(name: 'registryCredential', defaultValue: 'dockerhub', description: 'registryCredential')
 
-      string(name: 'manifestRepository', defaultValue: 'https://git.videri.com/kubernetes/manifests.git', description: 'manifestRepository')
-      string(name: ' manifestCredential', defaultValue: 'gitlab', description: ' manifestCredential')
+   
 
 
 }
