@@ -6,7 +6,7 @@ pipeline {
 
   parameters {
         string(name: 'repositoryBranch', defaultValue: 'master', description: 'repositoryBranch')
-        string(name: 'repositoryCredential', defaultValue: 'gitlab', description: 'repositoryCredential')
+        string(name: 'repositoryCredential', defaultValue: 'github', description: 'repositoryCredential')
         string(name: 'repositoryUrl', defaultValue: 'https://github.com/sunil3131/spring-petclinic.git', description: 'repositoryUrl')
         string(name: 'registry', defaultValue: 'sunil5252/demoproject', description: 'registry')
         string(name: 'registryCredential', defaultValue: 'dockerhub', description: 'registryCredential')
@@ -34,10 +34,26 @@ pipeline {
         ])
       }
     }
+    stage('commit') 
+    {
+    steps 
+        
+    {
+
+    script {
+        
+        GIT_HASH = sh(returnStdout: true, script: "git rev-parse --short HEAD").trim()
+    }
+ 
+    echo "hash is: ${GIT_HASH}"
+
+
+    }
+    }
 
     stage('Build Image') {
       steps {
-        sh "docker build -t ${params.registry}:${BUILD_NUMBER} ."
+        sh "docker build --network host -t ${registry}:${GIT_HASH} ."
       }
     }
 
