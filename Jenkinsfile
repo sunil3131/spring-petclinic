@@ -28,8 +28,8 @@ pipeline {
           submoduleCfg: [],
           userRemoteConfigs: [[
             name: 'origin',
-            credentialsId: ${params.repositoryCredential},
-            url: ${params.repositoryUrl}
+            credentialsId: "${params.repositoryCredential}",
+            url: "${params.repositoryUrl}"
           ]]
         ])
       }
@@ -53,7 +53,7 @@ pipeline {
 
     stage('Build Image') {
       steps {
-        sh "docker build --network host -t ${registry}:${GIT_HASH} ."
+        sh "docker build --network host -t "${params.registry}":${GIT_HASH} ."
       }
     }
 
