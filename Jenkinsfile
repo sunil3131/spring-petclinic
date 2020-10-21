@@ -57,7 +57,13 @@ pipeline {
       }
     }
 
-    
+    stage('Publish Image') {
+      steps {
+        withDockerRegistry([ credentialsId: "${params.registryCredential}", url: '' ]) {
+          sh "docker push ${params.registry}:${GIT_HASH}"
+        }
+      }
+    }
 
     stage('Deployment') {
       steps {
