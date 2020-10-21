@@ -53,7 +53,7 @@ pipeline {
 
     stage('Build Image') {
       steps {
-        sh "docker build --network host -t "${params.registry}":${GIT_HASH} ."
+        sh "docker build --network host -t ${params.registry}:${GIT_HASH} ."
       }
     }
 
